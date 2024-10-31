@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>SudokuHelper</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/frontpage.css') }}">
+    <!-- js to add loader -->
+    <script>
+        function showLoader(){
+            document.querySelector('.loader').style.display = 'block';
+        }
+        function hideLoader(){
+            document.querySelector('.loader').style.display = 'none';
+
+        }
+        window.addEventListener('DOMContentLoaded', (event) => {
+        document.getElementById('upload-form').addEventListener('submit', showLoader);
+      });
+    </script>
+  </head>
+  <body>
+    <div class="header">
+        <h1>Sudoku</h1>
+    </div>
+
+    <div class="row">
+        <div class="column">
+            <h3>Upload Sudoku</h3>
+            <form id="upload-form" method="POST" action="" enctype="multipart/form-data">
+                <label for="file-input" class="button buttonUpload"> Choose File</label>
+                <p><input id="file-input" type="file" name="file" class="hidden"></p>
+              <p><input type="submit" value="Submit" class="button buttonSubmit"></p>
+            </form>
+        </div>
+        <div class="column">
+             <div class="loader" style="display: none;"></div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+      <!-- Display uploaded images -->
+        <div class="column">
+            {% if uploaded_file %}
+            <div>
+                <h3 style="color: white">Uploaded Image:</h3>
+                <img src="{{ url_for('upload', filename=uploaded_file) }}" alt="Uploaded Image" onload="hideLoader()">
+            </div>
+            {% endif %}
+        </div>
+        <div class="column">
+      <!-- Display processed image - solution -->
+            {% if processed_file %}
+            <div>
+                <h3>Solution:</h3>
+                <img src="{{ url_for('processed_image', filename=processed_file) }}" alt="Processed Image" onload="hideLoader()">
+            </div>
+            {% endif %}
+        </div>
+    </div>
+  </body>
+</html>

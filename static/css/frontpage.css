@@ -1,0 +1,80 @@
+:root{}
+body {
+  background-color: darkgray; 
+  font-family: "Cascadia Mono", serif;
+  width: 800px;
+  margin: 50px;
+  color: white;
+}
+.row {
+  display: flex;
+}
+
+.column {
+    display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 10px;
+  height: auto;
+  box-sizing: border-box;
+  font-family: "Cascadia Mono", serif;
+}
+
+/*img fit to container */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.header {
+ display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  text-align: center;
+  background: white;
+  color: darkgray;
+  font-size: 30px;
+  height: 100px;
+  font-family: "Cascadia Mono", serif;
+}
+
+.button{
+  background-color: darkgray;
+  font-family: "Cascadia Mono", serif;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+
+}
+.hidden{
+    display: none;
+}
+.buttonUpload{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.buttonSubmit{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid darkslategrey; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
